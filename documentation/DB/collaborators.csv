@@ -1,0 +1,45 @@
+﻿Id;Titre;Prénom;Nom;Nom Complet;Acronyme;Type;Email;Fonction;Email interne;External uuid;Phone token;Phone token sent at;Phone verified at;Email privé;Updated on;Téléphones
+1677;;Patrick;ALTIERI;ALTIERI Patrick;PAI;Cpnv::Teacher;patrick.altieri@cpnv.ch;Enseignant;patrick.altieri@cpnv.ch;;;;;;22.08.2011;024 / 55 + 76079
+7033;;Frederique;ANDOLFATTO;ANDOLFATTO Frederique;FAO;Cpnv::HeadTeacher;Frederique.ANDOLFATTO@cpnv.ch;Enseignante, maîtresse principale EMSC Informatique;Frederique.ANDOLFATTO@cpnv.ch;;;;;;05.09.2022;024 / 55 + 76123
+10;;Pascal;BENZONANA;BENZONANA Pascal;PBA;Cpnv::Teacher;pascal.benzonana@cpnv.ch;Enseignant, médiateur, animateur pédagogique;pascal.benzonana@cpnv.ch;;;;;;28.08.2014;024 / 55 + 76079
+1383;;Claude Chantal;BLANC;BLANC Claude Chantal;CBC;Cpnv::Teacher;claude-chantal.blanc@cpnv.ch;Enseignante;claude-chantal.blanc@cpnv.ch;;;;;;20.06.2011;
+1678;;Eric;BOUTHIAUX;BOUTHIAUX Eric;EBX;Cpnv::Teacher;eric.bouthiaux@cpnv.ch;Enseignant;eric.bouthiaux@cpnv.ch;;;;;;22.08.2011;024 / 55 + 76070
+187;;Blaise;BROCARD;BROCARD Blaise;BBD;Cpnv::Teacher;blaise.brocard@cpnv.ch;Enseignant;blaise.brocard@cpnv.ch;;;;;;;
+7034;;Yann;CHARRERE;CHARRERE Yann;YCE;Cpnv::Teacher;Yann.CHARRERE@cpnv.ch;Enseignant;Yann.CHARRERE@cpnv.ch;;;;;;17.08.2015;
+9;;Jean-Philippe;CHAVEY;CHAVEY Jean-Philippe;JCY;Cpnv::Teacher;jean-philippe.chavey@cpnv.ch;Enseignant;jean-philippe.chavey@cpnv.ch;;;;;;;024 / 55 + 76082
+1088;;Gabriel;CIMENTI;CIMENTI Gabriel;GCI;Cpnv::Teacher;gabriel.cimenti@cpnv.ch;Enseignant;gabriel.cimenti@cpnv.ch;;;;;;03.09.2010;024 / 55 + 76070
+97;;Christine;CODOUREY;CODOUREY Christine;CCY;Cpnv::Teacher;christine.codourey@cpnv.ch;Enseignante;christine.codourey@cpnv.ch;;;;;;;
+9868;;Massimiliano;CRICCO;CRICCO Massimiliano;MCO;Cpnv::Teacher;Massimiliano.CRICCO@cpnv.ch;Enseignant;Massimiliano.CRICCO@cpnv.ch;;;;;;26.05.2017;
+76;;Marc;DAFFLON;DAFFLON Marc;MDN;Cpnv::Teacher;marc.dafflon@cpnv.ch;Enseignant;marc.dafflon@cpnv.ch;;;;;;;024 / 55 + 76070
+100;;Thierry;DE HELLER;DE HELLER Thierry;TDR;Cpnv::Teacher;thierry.de-heller@cpnv.ch;Enseignant;thierry.de-heller@cpnv.ch;;;;;;26.04.2013;024 / 55 + 76098
+11273;;Ana;DE-LAMEGO-RESENDE;DE-LAMEGO-RESENDE Ana;ARE;Cpnv::Teacher;Ana.DE-LAMEGO-RESENDE@cpnv.ch;Enseignante;Ana.DE-LAMEGO-RESENDE@cpnv.ch;;;;;;19.06.2018;
+66;;Stéphane;DELAPORTE;DELAPORTE Stéphane;SDE;Cpnv::Teacher;stephane.delaporte@cpnv.ch;Enseignant;stephane.delaporte@cpnv.ch;;;;;;24.05.2018;024 / 55 + 76108
+17341;;Valerie;DILLET;DILLET Valerie;VDT;Cpnv::Teacher;Valerie.DILLET@cpnv.ch;Enseignante;Valerie.DILLET@cpnv.ch;;;;;;23.05.2022;
+1451;;Sylvain;FASOLA;FASOLA Sylvain;SFA;Cpnv::Teacher;sylvain.fasola@cpnv.ch;Administrateur des systèmes de l’informatique péda., Enseignant;sylvain.fasola@cpnv.ch;;;;;;15.09.2015;024 / 55 + 76101
+16;;Raphaël;FAVRE;FAVRE Raphaël;RFA;Cpnv::Teacher;raphael.favre@cpnv.ch;Enseignant;raphael.favre@cpnv.ch;;;;;;;024 / 55 + 76082
+15570;;Olivia;FERRIERO;FERRIERO Olivia;OFO;Cpnv::Teacher;Olivia.FERRIERO@cpnv.ch;Enseignante;Olivia.FERRIERO@cpnv.ch;;;;;;28.08.2020;
+8310;;Nicolas;GLASSEY;GLASSEY Nicolas;NGY;Cpnv::Teacher;Nicolas.GLASSEY@cpnv.ch;Enseignant;Nicolas.GLASSEY@cpnv.ch;;;;;;09.06.2016;024 / 55 + 76081
+14233;;Yoachim;GRABER;GRABER Yoachim;YGR;Cpnv::Teacher;Yoachim.GRABER@cpnv.ch;Enseignant;Yoachim.GRABER@cpnv.ch;;;;;;04.03.2020;
+18783;;Cindy;HARDEGGER;HARDEGGER Cindy;CHA;Cpnv::Dean;Cindy.HARDEGGER@cpnv.ch;Doyenne;Cindy.HARDEGGER@cpnv.ch;;;;;;01.09.2022;024 / 55 + 76078
+12;;Pascal;HURNI;HURNI Pascal;PHI;Cpnv::Teacher;pascal.hurni@cpnv.ch;Enseignant;pascal.hurni@cpnv.ch;;;;;;25.08.2020;024 / 55 + 76081
+8311;;Julien;ITHURBIDE;ITHURBIDE Julien;JIE;Cpnv::Teacher;Julien.ITHURBIDE@cpnv.ch;Enseignant;Julien.ITHURBIDE@cpnv.ch;;;;;;09.06.2016;024 / 55 + 76123
+1240;;Laurent;JAGGI;JAGGI Laurent;LJI;Cpnv::Teacher;laurent.jaggi@cpnv.ch;Administrateur des systèmes de l’informatique péda., Enseignant;laurent.jaggi@cpnv.ch;;;;;;15.09.2015;024 / 55 + 76093, 024 / 55 + 77275
+240;;Charles-Henri;KOHLI;KOHLI Charles-Henri;CKI;Cpnv::Teacher;charles-henri.kohli@cpnv.ch;Enseignant, CF Physique et chimie;charles-henri.kohli@cpnv.ch;;;;;;12.09.2014;
+12760;;Yawo;KONOUTSE;KONOUTSE Yawo;YKE;Cpnv::Teacher;Yawo.KONOUTSE@cpnv.ch;Enseignant;Yawo.KONOUTSE@cpnv.ch;;;;;;20.07.2019;798321683
+7032;;Agnes;LAYAZ;LAYAZ Agnes;ALZ;Cpnv::Teacher;Agnes.LAYAZ@cpnv.ch;Enseignante, déléguée PSPS;Agnes.LAYAZ@cpnv.ch;;;;;;23.11.2020;024 / 55 + 76082
+120;;Sophie-Hélène;MARTIN;MARTIN Sophie-Hélène;SMM;Cpnv::Teacher;sophie-helene.martin@cpnv.ch;Enseignante;sophie-helene.martin@cpnv.ch;;;;;;;
+17300;;Joëlle;MATTER;MATTER Joëlle;JMR;Cpnv::Teacher;Joelle.MATTER@cpnv.ch;Enseignante;Joelle.MATTER@cpnv.ch;;;;;;18.02.2022;
+18854;;Mathieu;MEYLAN;MEYLAN Mathieu;MMN;Cpnv::Teacher;Mathieu.MEYLAN@cpnv.ch;Enseignant;Mathieu.MEYLAN@cpnv.ch;;;;;;02.12.2022;
+2335;;Judith;MONDADA;MONDADA Judith;JMA;Cpnv::Teacher;judith.mondada@cpnv.ch;Enseignante;judith.mondada@cpnv.ch;;;;;;23.08.2011;
+13;;André;MOTTIER;MOTTIER André;AMR;Cpnv::Teacher;andre.mottier@cpnv.ch;Enseignant;andre.mottier@cpnv.ch;;;;;;;024 / 55 + 76081
+17362;;Alessio;PARATA;PARATA Alessio;APA;Cpnv::Teacher;Alessio.PARATA@cpnv.ch;Enseignant;Alessio.PARATA@cpnv.ch;;;;;;15.07.2022;
+18;;Claude;ROCHAT;ROCHAT Claude;CRT;Cpnv::Teacher;claude.rochat@cpnv.ch;Enseignant, médiateur;claude.rochat@cpnv.ch;;;;;;28.09.2018;024 / 55 + 76123
+62;;Monika;RYSER;RYSER Monika;MRY;Cpnv::Teacher;monika.ryser@cpnv.ch;Enseignante;monika.ryser@cpnv.ch;;;;;;;024 / 55 + 76094
+23;;Yann;SAISON;SAISON Yann;YSN;Cpnv::Dean;yann.saison@cpnv.ch;Doyen;yann.saison@cpnv.ch;;;;;;08.07.2016;024 / 55 + 76077
+17347;;Julien;SAVARY;SAVARY Julien;JSY;Cpnv::Teacher;Julien.SAVARY@cpnv.ch;Enseignant;Julien.SAVARY@cpnv.ch;;;;;;10.06.2022;
+59;;Yvan;THIERY;THIERY Yvan;YTY;Cpnv::Teacher;yvan.thiery@cpnv.ch;Enseignant;yvan.thiery@cpnv.ch;;;;;;19.03.2019;024 / 55 + 76098
+22;;Jean-Yves;TINEMBART;TINEMBART Jean-Yves;JTT;Cpnv::Teacher;jean-yves.tinembart@cpnv.ch;Enseignant;jean-yves.tinembart@cpnv.ch;;;;;;12.09.2014;024 / 55 + 76082
+21;;Francis;VARELA;VARELA Francis;FVA;Cpnv::Teacher;francis.varela@cpnv.ch;Enseignant;francis.varela@cpnv.ch;;;;;;17.06.2019;024 / 55 + 76099
+12768;;Loic;VIRET;VIRET Loic;LVT;Cpnv::Teacher;Loic.VIRET@cpnv.ch;Enseignant;Loic.VIRET@cpnv.ch;;;;;;20.07.2019;
+1089;;Didier;WULLIAMOZ;WULLIAMOZ Didier;DWZ;Cpnv::Teacher;didier.wulliamoz@cpnv.ch;Responsable du Service Informatique pédagogique, Enseignant;didier.wulliamoz@cpnv.ch;;;;;;01.02.2016;0792931248, 024 / 55 + 76081, 0799410497
+9878;;Michael;WYSSA;WYSSA Michael;MWA;Cpnv::Teacher;Michael.WYSSA@cpnv.ch;Enseignant;Michael.WYSSA@cpnv.ch;;;;;;12.06.2017;024 / 55 + 76123
