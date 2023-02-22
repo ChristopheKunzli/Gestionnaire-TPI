@@ -214,7 +214,7 @@ VALUES
 ('Olivia.FERRIERO@cpnv.ch','OFO','FERRIERO','Olivia',0),
 ('Nicolas.GLASSEY@cpnv.ch','NGY','GLASSEY','Nicolas',0),
 ('Yoachim.GRABER@cpnv.ch','YGR','GRABER','Yoachim',0),
-('Cindy.HARDEGGER@cpnv.ch','CHA','HARDEGGER','Cindy',0),
+('Cindy.HARDEGGER@cpnv.ch','CHA','HARDEGGER','Cindy',1),
 ('pascal.hurni@cpnv.ch','PHI','HURNI','Pascal',0),
 ('Julien.ITHURBIDE@cpnv.ch','JIE','ITHURBIDE','Julien',0),
 ('laurent.jaggi@cpnv.ch','LJI','JAGGI','Laurent',0),

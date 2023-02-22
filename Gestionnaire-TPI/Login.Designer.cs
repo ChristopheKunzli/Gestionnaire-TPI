@@ -1,6 +1,6 @@
 ﻿namespace Gestionnaire_TPI
 {
-    partial class Login
+    partial class frmLogin
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,12 +28,80 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.txtMail = new System.Windows.Forms.TextBox();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.lblMail = new System.Windows.Forms.Label();
+            this.lblPass = new System.Windows.Forms.Label();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // txtMail
+            // 
+            this.txtMail.Location = new System.Drawing.Point(133, 41);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(127, 23);
+            this.txtMail.TabIndex = 0;
+            // 
+            // txtPass
+            // 
+            this.txtPass.Location = new System.Drawing.Point(133, 83);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
+            this.txtPass.Size = new System.Drawing.Size(127, 23);
+            this.txtPass.TabIndex = 1;
+            // 
+            // lblMail
+            // 
+            this.lblMail.AutoSize = true;
+            this.lblMail.Location = new System.Drawing.Point(39, 44);
+            this.lblMail.Name = "lblMail";
+            this.lblMail.Size = new System.Drawing.Size(36, 15);
+            this.lblMail.TabIndex = 0;
+            this.lblMail.Text = "Email";
+            // 
+            // lblPass
+            // 
+            this.lblPass.AutoSize = true;
+            this.lblPass.Location = new System.Drawing.Point(39, 86);
+            this.lblPass.Name = "lblPass";
+            this.lblPass.Size = new System.Drawing.Size(77, 15);
+            this.lblPass.TabIndex = 1;
+            this.lblPass.Text = "Mot de passe";
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.Location = new System.Drawing.Point(104, 134);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(75, 23);
+            this.btnConnect.TabIndex = 2;
+            this.btnConnect.Text = "Connexion";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
+            // frmLogin
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(307, 182);
+            this.Controls.Add(this.btnConnect);
+            this.Controls.Add(this.lblPass);
+            this.Controls.Add(this.lblMail);
+            this.Controls.Add(this.txtPass);
+            this.Controls.Add(this.txtMail);
+            this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Login";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private TextBox txtMail;
+        private TextBox txtPass;
+        private Label lblMail;
+        private Label lblPass;
+        private Button btnConnect;
     }
 }
