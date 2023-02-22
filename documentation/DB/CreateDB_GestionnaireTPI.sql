@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `TPI-Manager`.`TPI` (
   `year` DATE NOT NULL,
   `remarks` VARCHAR(2000) NULL,
   `duration` INT NULL,
-  `CDC` MEDIUMBLOB NULL,
+  `CDC` VARCHAR(200) NULL,
   `Candidates_id` INT NOT NULL,
   `Collaborators_id` INT NOT NULL,
   PRIMARY KEY (`id`, `Candidates_id`, `Collaborators_id`),
