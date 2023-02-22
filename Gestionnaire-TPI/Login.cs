@@ -26,11 +26,9 @@ namespace Gestionnaire_TPI
 
             User test = connection.getUser(txtMail.Text, txtPass.Text);
 
-
-            //TODO add correct error message if user is null
             if(test == null) 
             { 
-                MessageBox.Show("ERROR"); 
+                MessageBox.Show("Email ou mot de passe erroné"); 
             }
             //TODO Check if user is loging for the first time, if yes they must change password
             //TODO Send successfully logged user to the main form
@@ -40,7 +38,6 @@ namespace Gestionnaire_TPI
             }
 
         }
-
 
     }
 }
