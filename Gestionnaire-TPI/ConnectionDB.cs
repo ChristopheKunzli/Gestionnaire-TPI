@@ -48,14 +48,14 @@ namespace Gestionnaire_TPI
 
                 while (dataReader.Read())
                 {
-                    string firtsName = dataReader["firstName"].ToString();
+                    string firstName = dataReader["firstName"].ToString();
                     string lastName = dataReader["lastName"].ToString();
                     string mail = dataReader["email"].ToString();
                     string acronym = dataReader["acronym"].ToString();
 
                     bool isAdmin = (dataReader["isResponsableTPI"].ToString() == "1") ? true : false;
 
-                    user = new User(firtsName, lastName, mail, acronym, isAdmin);
+                    user = new User(firstName, lastName, mail, acronym, isAdmin);
                 }
                 connection.Close();
 
