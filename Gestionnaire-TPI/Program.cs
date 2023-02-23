@@ -13,7 +13,7 @@ namespace Gestionnaire_TPI
             ApplicationConfiguration.Initialize();
 
             //Attempt login
-            User user;
+            User user = null;
             DialogResult loginRes;
             using (LoginForm login = new LoginForm())
             {
