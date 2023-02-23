@@ -1,6 +1,6 @@
 ﻿namespace Gestionnaire_TPI
 {
-    partial class Main
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace Gestionnaire_TPI
 {
-    partial class frmLogin
+    partial class LoginForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -78,7 +78,7 @@
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
-            // frmLogin
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -88,7 +88,7 @@
             this.Controls.Add(this.lblMail);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtMail);
-            this.Name = "frmLogin";
+            this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);

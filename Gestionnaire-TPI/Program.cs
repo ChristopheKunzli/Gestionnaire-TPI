@@ -11,7 +11,22 @@ namespace Gestionnaire_TPI
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmLogin());
+
+            User user;
+            DialogResult loginRes;
+            using (LoginForm login = new LoginForm())
+            {
+                Application.Run(login);
+                user = login.Collaborator;
+                loginRes = login.DialogResult;
+            }
+
+            //in case user closed the login form without actually logging
+            if (user == null || loginRes != DialogResult.OK) return;
+
+
+            Form main = new MainForm(user);
+            Application.Run(main);
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using MySqlConnector;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Gestionnaire_TPI
 {
@@ -32,19 +33,20 @@ namespace Gestionnaire_TPI
         /// </summary>
         /// <param name="email"></param>
         /// <param name="password"></param>
-        /// <returns></returns>
-        public User getUser(string email, string password) 
+        /// <returns>The created user</returns>
+        public User GetUser(string email, string password) 
         {
             User user = null;
             try
             {
                 connection.Open();
 
-                MySqlCommand commandGet = connection.CreateCommand();
+                MySqlCommand cmdSelect = connection.CreateCommand();
 
-                commandGet.CommandText = $"SELECT email, acronym, lastName, firstName, isResponsableTPI FROM collaborators WHERE collaborators.email = '{email}' AND collaborators.password = '{password}'";
+                cmdSelect.CommandText = $"SELECT email, acronym, lastName, firstName, isResponsableTPI FROM collaborators " +
+                    $"WHERE collaborators.email = '{email}' AND collaborators.password = '{password}'";
 
-                MySqlDataReader dataReader = commandGet.ExecuteReader();
+                MySqlDataReader dataReader = cmdSelect.ExecuteReader();
 
                 while (dataReader.Read())
                 {
@@ -65,6 +67,33 @@ namespace Gestionnaire_TPI
                 MessageBox.Show(ex.Message);
             }
             return user;
+        }
+
+        /// <summary>
+        /// Method used to change a user's password
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="newPassword"></param>
+        public void UpdateUserPassword(User user, string newPassword)
+        {
+            try
+            {
+                connection.Open();
+                MySqlCommand cmdUpdate = connection.CreateCommand();
+
+                cmdUpdate.CommandText = $"UPDATE Collaborators SET password=@pass WHERE email=@mail";
+
+                cmdUpdate.Parameters.AddWithValue("@pass", newPassword);
+                cmdUpdate.Parameters.AddWithValue("@mail", user.Email);
+
+                cmdUpdate.ExecuteNonQuery();
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

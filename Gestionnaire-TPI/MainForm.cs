@@ -10,11 +10,14 @@ using System.Windows.Forms;
 
 namespace Gestionnaire_TPI
 {
-    public partial class Main : Form
+    public partial class MainForm : Form
     {
-        public Main()
+        private User user;
+
+        public MainForm(User user)
         {
             InitializeComponent();
+            this.user = user;
         }
     }
 }
