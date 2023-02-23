@@ -4,7 +4,7 @@ namespace Gestionnaire_TPI
     {
         private ConnectionDB connection;
         private User collaborator;
-        private string DEFAULT_PASSWORD = "1234";
+        private readonly string DEFAULT_PASSWORD = "1234";
 
         public User Collaborator { get { return collaborator; } }
 
@@ -47,9 +47,9 @@ namespace Gestionnaire_TPI
 
                 //Determine what to do when the changePassword form is closed based on it's dialog result
                 changePass.FormClosing += delegate { 
-                    if(DialogResult == DialogResult.OK)
+                    if(changePass.DialogResult == DialogResult.OK)
                     {
-                        this.Close();
+                        closeForm();
                     }
                     else
                     {
@@ -64,10 +64,19 @@ namespace Gestionnaire_TPI
             else
             {
                 //Close the login form to continue to the main form (see Program.cs)
-                DialogResult = DialogResult.OK;
-                this.Close();
+                closeForm();
             }
 
+        }
+
+        /// <summary>
+        /// Closes the form after updating the form's DialogResult
+        /// </summary>
+        /// <param name="isLoggedIn"></param>
+        private void closeForm(bool isLoggedIn = true)
+        {
+            this.DialogResult = (isLoggedIn)? DialogResult.OK : DialogResult.Abort;
+            this.Close();
         }
 
     }
