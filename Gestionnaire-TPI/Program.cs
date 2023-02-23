@@ -12,6 +12,7 @@ namespace Gestionnaire_TPI
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
+            //Attempt login
             User user;
             DialogResult loginRes;
             using (LoginForm login = new LoginForm())
@@ -24,7 +25,7 @@ namespace Gestionnaire_TPI
             //in case user closed the login form without actually logging
             if (user == null || loginRes != DialogResult.OK) return;
 
-
+            //Open main form, everything else should happen inside this form
             Form main = new MainForm(user);
             Application.Run(main);
         }

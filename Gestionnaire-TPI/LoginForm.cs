@@ -19,6 +19,7 @@ namespace Gestionnaire_TPI
             string mail = txtMail.Text;
             string password = txtPass.Text;
 
+            //Errors
             if (mail == string.Empty)
             {
                 MessageBox.Show("Veuillez rentrer un adresse email valide");
@@ -39,9 +40,12 @@ namespace Gestionnaire_TPI
                 return;
             }
 
+            //Check if user needs to change password
             if(password == DEFAULT_PASSWORD)
             {
                 Form changePass = new ChangePassword(collaborator);
+
+                //Determine what to do when the changePassword form is closed based on it's dialog result
                 changePass.FormClosing += delegate { 
                     if(DialogResult == DialogResult.OK)
                     {
@@ -53,11 +57,13 @@ namespace Gestionnaire_TPI
                         collaborator = null;
                     }
                 };
+
                 changePass.Show();
                 this.Hide();
             }
             else
             {
+                //Close the login form to continue to the main form (see Program.cs)
                 DialogResult = DialogResult.OK;
                 this.Close();
             }

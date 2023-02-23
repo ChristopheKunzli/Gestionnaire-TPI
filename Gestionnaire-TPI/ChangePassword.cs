@@ -47,11 +47,14 @@ namespace Gestionnaire_TPI
                 return;
             }
 
-            //Check if password is 
+            //Check if password meets requirements
             if (isPasswordValid(password))
             {
+                //Update the password in the databse
                 connection = new ConnectionDB();
                 connection.UpdateUserPassword(user, password);
+
+                //Leave this form and login form
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -68,6 +71,8 @@ namespace Gestionnaire_TPI
         /// <returns></returns>
         private bool isPasswordValid(string password)
         {
+            //TODO Use Regex instead of manually checking password validity
+
             if (password.Length < 8) return false;
 
             bool containsSpecialChar = false;
