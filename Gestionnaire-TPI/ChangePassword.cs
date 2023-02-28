@@ -86,7 +86,7 @@ namespace Gestionnaire_TPI
                     containsSpecialChar = true;
                 }
 
-                if(char.IsDigit(c))
+                if (char.IsDigit(c))
                 {
                     containsDigit = true;
                 }
