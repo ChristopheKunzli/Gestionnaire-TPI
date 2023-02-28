@@ -22,13 +22,13 @@ namespace Gestionnaire_TPI
             //Errors
             if (mail == string.Empty)
             {
-                MessageBox.Show("Veuillez rentrer un adresse email valide");
+                MessageBox.Show("Veuillez rentrer une adresse email valide");
                 return;
             }
 
             if(password == string.Empty)
             {
-                MessageBox.Show("Veuillez rentrer votre mot de passe (si première connexion, le mot de passe par défaut est \"1234 \")");
+                MessageBox.Show("Veuillez rentrer votre mot de passe");
                 return;
             }
 
@@ -40,7 +40,7 @@ namespace Gestionnaire_TPI
                 return;
             }
 
-            //Check if user needs to change password
+            //Check if user needs to change password or not
             if(password == DEFAULT_PASSWORD)
             {
                 Form changePass = new ChangePassword(collaborator);
@@ -49,6 +49,7 @@ namespace Gestionnaire_TPI
                 changePass.FormClosing += delegate { 
                     if(changePass.DialogResult == DialogResult.OK)
                     {
+                        //If user successfully changed their password, go to main form
                         closeForm();
                     }
                     else

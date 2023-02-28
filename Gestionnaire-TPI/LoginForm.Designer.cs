@@ -39,7 +39,7 @@
             // 
             this.txtMail.Location = new System.Drawing.Point(133, 41);
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(127, 23);
+            this.txtMail.Size = new System.Drawing.Size(196, 23);
             this.txtMail.TabIndex = 0;
             // 
             // txtPass
@@ -47,7 +47,7 @@
             this.txtPass.Location = new System.Drawing.Point(133, 83);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
-            this.txtPass.Size = new System.Drawing.Size(127, 23);
+            this.txtPass.Size = new System.Drawing.Size(196, 23);
             this.txtPass.TabIndex = 1;
             // 
             // lblMail
@@ -70,7 +70,7 @@
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(104, 134);
+            this.btnConnect.Location = new System.Drawing.Point(157, 129);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnect.TabIndex = 2;
@@ -82,7 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 182);
+            this.ClientSize = new System.Drawing.Size(403, 182);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.lblPass);
             this.Controls.Add(this.lblMail);
