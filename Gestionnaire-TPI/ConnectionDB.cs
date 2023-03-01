@@ -4,7 +4,9 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualBasic.ApplicationServices;
 using MySqlConnector;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Gestionnaire_TPI
@@ -94,6 +96,41 @@ namespace Gestionnaire_TPI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public List<TPI> getListTPI()
+        {
+            List<TPI> list = new List<TPI>();
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand cmdSelect = connection.CreateCommand();
+
+                cmdSelect.CommandText = 
+                    $"SELECT title, year, remarks, duration FROM tpi";
+
+                MySqlDataReader dataReader = cmdSelect.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    string title = dataReader["title"].ToString();
+                    string year = dataReader["year"].ToString();
+                    string remarks = dataReader["remarks"].ToString();
+                    string duration = dataReader["duration"].ToString();
+
+                    list.Add(new TPI(title, year, remarks, duration));
+                   
+                }
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return list;
         }
     }
 }

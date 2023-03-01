@@ -28,12 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dgvListTPI = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListTPI)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dgvListTPI
+            // 
+            this.dgvListTPI.AllowUserToAddRows = false;
+            this.dgvListTPI.AllowUserToDeleteRows = false;
+            this.dgvListTPI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListTPI.Location = new System.Drawing.Point(12, 12);
+            this.dgvListTPI.Name = "dgvListTPI";
+            this.dgvListTPI.ReadOnly = true;
+            this.dgvListTPI.RowTemplate.Height = 25;
+            this.dgvListTPI.Size = new System.Drawing.Size(1161, 426);
+            this.dgvListTPI.TabIndex = 0;
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1185, 450);
+            this.Controls.Add(this.dgvListTPI);
+            this.Name = "MainForm";
             this.Text = "Main";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListTPI)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private DataGridView dgvListTPI;
     }
 }
