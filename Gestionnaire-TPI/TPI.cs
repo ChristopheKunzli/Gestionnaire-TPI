@@ -12,11 +12,15 @@ namespace Gestionnaire_TPI
         private string year;
         private string remarks;
         private string duration;
+        private Candidate candidate;
+        private Collaborator projectChief;
 
         public string Title { get { return title; } }
         public string Year { get { return year; } }
         public string Remarks { get { return remarks; } }
         public string Duration { get { return duration; } }
+        public Candidate Candidate { get { return candidate; } }
+        public Collaborator ProjectChief { get { return projectChief; } }
         
         
         public TPI(string title) 
@@ -30,6 +34,16 @@ namespace Gestionnaire_TPI
             this.year = year;
             this.remarks = remarks;
             this.duration = duration;
+        }
+
+        public TPI(string title, string year, string remarks, string duration, Candidate candidate, Collaborator projectChief)
+        {
+            this.title = title;
+            this.year = year;
+            this.remarks = remarks;
+            this.duration = duration;
+            this.candidate = candidate;
+            this.projectChief = projectChief;
         }
 
         public string[] displayTPI()

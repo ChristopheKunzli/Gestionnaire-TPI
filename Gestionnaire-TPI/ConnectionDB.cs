@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -14,20 +16,23 @@ namespace Gestionnaire_TPI
     public class ConnectionDB
     {
         private MySqlConnection connection;
+        private MySqlConnection connection2;
+
 
         public ConnectionDB()
         {
-            InitConnexion();
+            connection = InitConnexion();
+            //connection2 = InitConnexion();
         }
 
         /// <summary>
         /// Method used to create a connection to the DataBase
         /// </summary>
-        private void InitConnexion()
+        private MySqlConnection InitConnexion()
         {
             // connection string creation : contact the DB server
             string connectionString = "SERVER=127.0.0.1; PORT=3306; DATABASE=tpi-manager; UID=client_tpi-manager; PASSWORD=Pa$$w0rd";
-            connection = new MySqlConnection(connectionString);
+            return new MySqlConnection(connectionString);
         }
 
         /// <summary>
@@ -61,13 +66,17 @@ namespace Gestionnaire_TPI
 
                     user = new Collaborator(firstName, lastName, mail, acronym, isAdmin);
                 }
-                connection.Close();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            finally
+            {
+                connection.Close();
+            }
+
+
             return user;
         }
 
@@ -90,14 +99,21 @@ namespace Gestionnaire_TPI
 
                 cmdUpdate.ExecuteNonQuery();
 
-                connection.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            finally
+            {
+                connection.Close();
+            }
         }
 
+        /// <summary>
+        /// Method used to fetch the entire list of tpi along with their candidate and project chief
+        /// </summary>
+        /// <returns></returns>
         public List<TPI> getListTPI()
         {
             List<TPI> list = new List<TPI>();
@@ -109,7 +125,7 @@ namespace Gestionnaire_TPI
                 MySqlCommand cmdSelect = connection.CreateCommand();
 
                 cmdSelect.CommandText = 
-                    $"SELECT title, year, remarks, duration FROM tpi";
+                    $"SELECT title, year, remarks, duration, Candidates_id, Collaborators_id FROM tpi";
 
                 MySqlDataReader dataReader = cmdSelect.ExecuteReader();
 
@@ -119,6 +135,12 @@ namespace Gestionnaire_TPI
                     string year = dataReader["year"].ToString();
                     string remarks = dataReader["remarks"].ToString();
                     string duration = dataReader["duration"].ToString();
+
+                    int candidate_id =  int.Parse(dataReader["Candidates_id"].ToString());
+                    int collaborator_id =  int.Parse(dataReader["Candidates_id"].ToString());
+
+                    Candidate cand = getCandidateByID(candidate_id);
+                    //Collaborator collab = getCollaboratorByID(collaborator_id);
 
                     list.Add(new TPI(title, year, remarks, duration));
                    
@@ -130,7 +152,66 @@ namespace Gestionnaire_TPI
             {
                 MessageBox.Show(ex.Message);
             }
+            finally
+            {
+                connection.Close();
+            }
+
             return list;
+        }
+
+        /// <summary>
+        /// Method used to get information of a specific candidate by searching it's id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Candidate object</returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public Candidate getCandidateByID(int id)
+        {
+            Candidate candidate = null;
+
+            try
+            {
+                connection2.Open();
+                MySqlCommand cmdSelect = connection.CreateCommand();
+
+
+                cmdSelect.CommandText = 
+                    $"SELECT candidates.email, candidates.firstName, candidates.lastName, classes.name AS class_name FROM candidates " +
+                    $"INNER JOIN classes ON classes.id = candidates.Classes_id " +
+                    $"WHERE candidates.id = @id";
+
+                cmdSelect.Parameters.AddWithValue("@id", id);
+
+                MySqlDataReader dataReader = cmdSelect.ExecuteReader();
+
+                //Store all results in a data table object
+                DataTable table = new DataTable();
+                table.Load(dataReader);
+
+                string fn = table.Rows[0]["firstName"].ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally 
+            {
+                connection2.Close();
+            }
+
+            return candidate;
+        }
+
+        /// <summary>
+        /// Method used to get information of a specific collaborator by searching it's id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Collaborator object</returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public Collaborator getCollaboratorByID(int id) 
+        {
+            throw new NotImplementedException();
         }
     }
 }

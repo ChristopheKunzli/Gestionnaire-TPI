@@ -13,7 +13,7 @@ namespace Gestionnaire_TPI
 
         public string ClassName { get { return className; } }
 
-        public Candidate(string firstName, string lastName, string className) : base (firstName, lastName)
+        public Candidate(string firstName, string lastName, string email, string className) : base (firstName, lastName, email)
         {
             this.className = className;
         }

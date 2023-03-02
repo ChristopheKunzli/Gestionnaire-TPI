@@ -13,7 +13,7 @@ namespace Gestionnaire_TPI
     public partial class ChangePassword : Form
     {
         private Collaborator user;
-        ConnectionDB connection;
+        ConnectionDB? connection;
 
         public ChangePassword(Collaborator user)
         {

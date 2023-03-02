@@ -19,7 +19,9 @@ namespace Gestionnaire_TPI
         {
             InitializeComponent();
             this.user = user;
-            
+
+            cmdDetails.Text = (user.IsAdmin) ? "Voir détails / Modifier" : "Voir détails";
+
             initDGV();
 
         }

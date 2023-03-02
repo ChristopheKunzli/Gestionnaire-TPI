@@ -10,14 +10,17 @@ namespace Gestionnaire_TPI
     {
         private string firstName;
         private string lastName;
+        private string email;
 
         public string FirstName { get { return firstName; } }
         public string LastName { get { return lastName;} }
+        public string Email { get { return email;} }
 
-        public Person (string firstName, string lastName)
+        public Person (string firstName, string lastName, string email)
         {
             this.firstName = firstName;
             this.lastName = lastName;
+            this.email = email;
         }
 
         public string Display()
