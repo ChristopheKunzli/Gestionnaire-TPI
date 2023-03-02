@@ -45,7 +45,6 @@ namespace Gestionnaire_TPI
             dgvListTPI.AllowUserToResizeRows = false;
             dgvListTPI.AllowDrop = false;
 
-
             if (user.IsAdmin)
             {
                 //Show the add button
@@ -76,10 +75,12 @@ namespace Gestionnaire_TPI
         {
             var senderGrid = (DataGridView)sender;
 
+            //if(e.RowIndex < 0 ) { return; }
+
             //Verify that the user clicked on a celle that contains a button 
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                //TODO replace this to delete a TPI instead
+                //TODO Replace this to delete a TPI instead
                 MessageBox.Show(dgvListTPI[0, e.RowIndex].Value.ToString());
             }
         }
@@ -135,6 +136,12 @@ namespace Gestionnaire_TPI
         private void cmdRefresh_Click(object sender, EventArgs e)
         {
             refreshList();
+        }
+
+        private void cmdDetails_Click(object sender, EventArgs e)
+        {
+            //TODO Replace this to show the TPI details form instead
+            MessageBox.Show(dgvListTPI[0, dgvListTPI.SelectedCells[0].RowIndex].Value.ToString());
         }
     }
 }
