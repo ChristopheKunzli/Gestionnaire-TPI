@@ -54,8 +54,8 @@ namespace Gestionnaire_TPI
 
                 //Create a delete button
                 DataGridViewButtonColumn button = new DataGridViewButtonColumn();
+                button.Name = "Supprimer TPI";
                 button.Text = "Supprimmer";
-                button.Name = "cmdDelete";
 
                 //Add a column, that will generate the delete button on every row
                 dgvListTPI.Columns.Add(button);
@@ -68,7 +68,7 @@ namespace Gestionnaire_TPI
         }
 
         /// <summary>
-        /// Event handler for the delete button
+        /// Event handler for CellContentClick
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
