@@ -3,10 +3,10 @@ namespace Gestionnaire_TPI
     public partial class LoginForm : Form
     {
         private ConnectionDB connection;
-        private User collaborator;
+        private Collaborator user;
         private readonly string DEFAULT_PASSWORD = "1234";
 
-        public User Collaborator { get { return collaborator; } }
+        public Collaborator User { get { return user; } }
 
         public LoginForm()
         {
@@ -32,9 +32,9 @@ namespace Gestionnaire_TPI
                 return;
             }
 
-            collaborator = connection.GetUser(mail, password);
+            user = connection.GetUser(mail, password);
 
-            if(collaborator == null) 
+            if(user == null) 
             { 
                 MessageBox.Show("Email ou mot de passe erroné");
                 return;
@@ -43,7 +43,7 @@ namespace Gestionnaire_TPI
             //Check if user needs to change password or not
             if(password == DEFAULT_PASSWORD)
             {
-                Form changePass = new ChangePassword(collaborator);
+                Form changePass = new ChangePassword(user);
 
                 //Determine what to do when the changePassword form is closed based on it's dialog result
                 changePass.FormClosing += delegate { 
@@ -55,7 +55,7 @@ namespace Gestionnaire_TPI
                     else
                     {
                         this.Show();
-                        collaborator = null;
+                        user = null;
                     }
                 };
 

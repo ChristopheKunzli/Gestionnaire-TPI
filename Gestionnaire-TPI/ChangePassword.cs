@@ -12,10 +12,10 @@ namespace Gestionnaire_TPI
 {
     public partial class ChangePassword : Form
     {
-        private User user;
+        private Collaborator user;
         ConnectionDB connection;
 
-        public ChangePassword(User user)
+        public ChangePassword(Collaborator user)
         {
             InitializeComponent();
             this.user = user;

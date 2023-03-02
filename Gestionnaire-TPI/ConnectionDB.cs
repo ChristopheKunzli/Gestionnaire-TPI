@@ -36,9 +36,9 @@ namespace Gestionnaire_TPI
         /// <param name="email"></param>
         /// <param name="password"></param>
         /// <returns>The created user</returns>
-        public User GetUser(string email, string password) 
+        public Collaborator GetUser(string email, string password) 
         {
-            User user = null;
+            Collaborator user = null;
             try
             {
                 connection.Open();
@@ -59,7 +59,7 @@ namespace Gestionnaire_TPI
 
                     bool isAdmin = (dataReader["isResponsableTPI"].ToString() == "1") ? true : false;
 
-                    user = new User(firstName, lastName, mail, acronym, isAdmin);
+                    user = new Collaborator(firstName, lastName, mail, acronym, isAdmin);
                 }
                 connection.Close();
 
@@ -76,7 +76,7 @@ namespace Gestionnaire_TPI
         /// </summary>
         /// <param name="user"></param>
         /// <param name="newPassword"></param>
-        public void UpdateUserPassword(User user, string newPassword)
+        public void UpdateUserPassword(Collaborator user, string newPassword)
         {
             try
             {

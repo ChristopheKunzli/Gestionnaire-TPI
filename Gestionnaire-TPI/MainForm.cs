@@ -13,9 +13,9 @@ namespace Gestionnaire_TPI
     public partial class MainForm : Form
     {
         private ConnectionDB connection;
-        private User user;
+        private Collaborator user;
 
-        public MainForm(User user)
+        public MainForm(Collaborator user)
         {
             InitializeComponent();
             this.user = user;
@@ -48,21 +48,23 @@ namespace Gestionnaire_TPI
 
             if (user.IsAdmin)
             {
+                //Show the add button
                 cmdAdd.Visible = true;
                 cmdAdd.Enabled = true;
 
+                //Create a delete button
                 DataGridViewButtonColumn button = new DataGridViewButtonColumn();
                 button.Text = "Supprimmer";
                 button.Name = "cmdDelete";
 
+                //Add a column, that will generate the delete button on every row
                 dgvListTPI.Columns.Add(button);
 
+                //add 'CellContentClick' event handler to the grid, this is intended for the delete button
                 dgvListTPI.CellContentClick += new DataGridViewCellEventHandler(dgvListTPI_CellContentClick);
             }
 
-            displayList();
-
-
+            refreshList();
         }
 
         /// <summary>
@@ -74,17 +76,18 @@ namespace Gestionnaire_TPI
         {
             var senderGrid = (DataGridView)sender;
 
+            //Verify that the user clicked on a celle that contains a button 
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
+                //TODO replace this to delete a TPI instead
                 MessageBox.Show(dgvListTPI[0, e.RowIndex].Value.ToString());
             }
         }
 
-
         /// <summary>
         /// Insert all data to the DataGridView
         /// </summary>
-        private void displayList()
+        private void refreshList()
         {
             dgvListTPI.Rows.Clear();
 
@@ -106,7 +109,11 @@ namespace Gestionnaire_TPI
             }
         }
 
-
+        /// <summary>
+        /// Event handler for the add button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdAdd_Click(object sender, EventArgs e)
         {
             Form addTPI = new Form();
@@ -118,6 +125,16 @@ namespace Gestionnaire_TPI
 
             addTPI.Show();
             this.Hide();
+        }
+
+        /// <summary>
+        /// Event handler for the refresh button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmdRefresh_Click(object sender, EventArgs e)
+        {
+            refreshList();
         }
     }
 }

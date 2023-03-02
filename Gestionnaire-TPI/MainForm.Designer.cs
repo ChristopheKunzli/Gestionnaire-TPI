@@ -30,6 +30,7 @@
         {
             this.dgvListTPI = new System.Windows.Forms.DataGridView();
             this.cmdAdd = new System.Windows.Forms.Button();
+            this.cmdRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListTPI)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             // cmdAdd
             // 
             this.cmdAdd.Enabled = false;
-            this.cmdAdd.Location = new System.Drawing.Point(12, 7);
+            this.cmdAdd.Location = new System.Drawing.Point(153, 7);
             this.cmdAdd.Name = "cmdAdd";
             this.cmdAdd.Size = new System.Drawing.Size(135, 23);
             this.cmdAdd.TabIndex = 1;
@@ -57,11 +58,22 @@
             this.cmdAdd.Visible = false;
             this.cmdAdd.Click += new System.EventHandler(this.cmdAdd_Click);
             // 
+            // cmdRefresh
+            // 
+            this.cmdRefresh.Location = new System.Drawing.Point(12, 7);
+            this.cmdRefresh.Name = "cmdRefresh";
+            this.cmdRefresh.Size = new System.Drawing.Size(135, 23);
+            this.cmdRefresh.TabIndex = 2;
+            this.cmdRefresh.Text = "Rafraichir";
+            this.cmdRefresh.UseVisualStyleBackColor = true;
+            this.cmdRefresh.Click += new System.EventHandler(this.cmdRefresh_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1161, 450);
+            this.Controls.Add(this.cmdRefresh);
             this.Controls.Add(this.cmdAdd);
             this.Controls.Add(this.dgvListTPI);
             this.Name = "MainForm";
@@ -75,5 +87,6 @@
 
         private DataGridView dgvListTPI;
         private Button cmdAdd;
+        private Button cmdRefresh;
     }
 }

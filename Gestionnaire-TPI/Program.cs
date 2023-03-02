@@ -13,12 +13,12 @@ namespace Gestionnaire_TPI
             ApplicationConfiguration.Initialize();
 
             //Attempt login
-            User user = null;
+            Collaborator user = null;
             DialogResult loginRes;
             using (LoginForm login = new LoginForm())
             {
                 Application.Run(login);
-                user = login.Collaborator;
+                user = login.User;
                 loginRes = login.DialogResult;
             }
 
