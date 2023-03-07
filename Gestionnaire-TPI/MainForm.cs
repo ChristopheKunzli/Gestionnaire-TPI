@@ -102,7 +102,7 @@ namespace Gestionnaire_TPI
 
                 foreach (TPI tpi in list)
                 {
-                    dgvListTPI.Rows.Add(tpi.displayTPI());
+                    dgvListTPI.Rows.Add(tpi.DisplayTPI());
                 }
 
             }

@@ -77,7 +77,7 @@ DROP TABLE IF EXISTS `TPI-Manager`.`TPI` ;
 
 CREATE TABLE IF NOT EXISTS `TPI-Manager`.`TPI` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `title` VARCHAR(100) NOT NULL,
+  `title` VARCHAR(200) NOT NULL,
   `year` DATE NOT NULL,
   `remarks` VARCHAR(2000) NULL,
   `duration` INT NULL,
@@ -503,11 +503,14 @@ VALUES
 -- -----------------------------------------------------
 -- Table `TPI-Manager`.`tpi`
 -- -----------------------------------------------------
-INSERT INTO `TPI-Manager`.tpi (title,year,Candidates_id,Collaborators_id)
-VALUES
-('Consultation et archivage des sujets donnés lors des PRE-TPI et TPI à l\'aide d\'une application c#','2023-01-31', 106,2),
-('Mise en service de GPI avec liaison Active Directory','2023-01-31',11,41)
+INSERT INTO `tpi` (`title`, `year`, `Candidates_id`, `Collaborators_id`) VALUES
+('Consultation et archivage des sujets donnés lors des PRE-TPI et TPI à l\'aide d\'une application c#', '2023-01-31', 106, 2),
+('Mise en service de GPI avec liaison Active Directory', '2023-01-31', 59, 41),
+('WIFI multiple SSID', '2023-01-31', 146, 41),
+('Mise à jour de la solution de déploiement avec un impact minimisé, de fichiers très volumineux sur les PC d\'une salle', '2023-01-31', 83, 41),
+('Déploiement de systèmes d\'exploitation Windows 10 avec le logiciel libre G4L (Ghost for Linux)', '2023-01-31', 128, 41)
 ;
+
 
 
 -- -----------------------------------------------------

@@ -16,8 +16,6 @@ namespace Gestionnaire_TPI
     public class ConnectionDB
     {
         private MySqlConnection connection;
-        private MySqlConnection connection2;
-
 
         public ConnectionDB()
         {
@@ -124,8 +122,17 @@ namespace Gestionnaire_TPI
 
                 MySqlCommand cmdSelect = connection.CreateCommand();
 
+                //cmdSelect.CommandText = 
+                //    $"SELECT title, year, remarks, duration, Candidates_id, Collaborators_id FROM tpi";
+
                 cmdSelect.CommandText = 
-                    $"SELECT title, year, remarks, duration, Candidates_id, Collaborators_id FROM tpi";
+                    "SELECT tpi.title, tpi.year, tpi.remarks, tpi.duration, tpi.CDC, " +
+                    "candidates.firstName AS candidate_firstName, candidates.lastName AS candidate_lastName, " +
+                    "collaborators.firstName AS collaborator_firstName, collaborators.lastName AS collaborator_lastName " +
+                    "FROM tpi " +
+                    "LEFT JOIN candidates ON candidates.id = tpi.Candidates_id " +
+                    "LEFT JOIN collaborators ON collaborators.id = tpi.Collaborators_id " +
+                    "LEFT JOIN classes ON classes.id = candidates.Classes_id";
 
                 MySqlDataReader dataReader = cmdSelect.ExecuteReader();
 
@@ -136,10 +143,13 @@ namespace Gestionnaire_TPI
                     string remarks = dataReader["remarks"].ToString();
                     string duration = dataReader["duration"].ToString();
 
-                    int candidate_id =  int.Parse(dataReader["Candidates_id"].ToString());
-                    int collaborator_id =  int.Parse(dataReader["Candidates_id"].ToString());
+                    //int candidate_id =  int.Parse(dataReader["Candidates_id"].ToString());
+                    //int collaborator_id =  int.Parse(dataReader["Candidates_id"].ToString());
 
-                    Candidate cand = getCandidateByID(candidate_id);
+                    string candidateName = dataReader["candidate_firstName"].ToString() + " " + dataReader["candidate_lastName"].ToString();
+                    string projectChiefName = dataReader["collaborator_firstName"].ToString() + " " + dataReader["collaborator_lastName"].ToString();
+
+                    //Candidate cand = getCandidateByID(candidate_id);
                     //Collaborator collab = getCollaboratorByID(collaborator_id);
 
                     list.Add(new TPI(title, year, remarks, duration));
@@ -172,7 +182,7 @@ namespace Gestionnaire_TPI
 
             try
             {
-                connection2.Open();
+                connection.Open();
                 MySqlCommand cmdSelect = connection.CreateCommand();
 
 
@@ -197,7 +207,7 @@ namespace Gestionnaire_TPI
             }
             finally 
             {
-                connection2.Close();
+                connection.Close();
             }
 
             return candidate;

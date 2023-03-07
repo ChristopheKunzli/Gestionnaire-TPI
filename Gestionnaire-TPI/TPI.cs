@@ -46,7 +46,11 @@ namespace Gestionnaire_TPI
             this.projectChief = projectChief;
         }
 
-        public string[] displayTPI()
+        /// <summary>
+        /// Give all important information on the TPI
+        /// </summary>
+        /// <returns>An array containing each </returns>
+        public string[] DisplayTPI()
         {
             return new string[] { title, year, remarks, duration };
         }
