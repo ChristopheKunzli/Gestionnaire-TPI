@@ -58,5 +58,10 @@ namespace Gestionnaire_TPI
 
             return res;
         }
+
+        public string[] DisplayTPIFull()
+        {
+            return Array.Empty<string>();
+        }
     }
 }

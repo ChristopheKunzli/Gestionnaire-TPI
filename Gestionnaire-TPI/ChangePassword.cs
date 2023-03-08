@@ -21,7 +21,7 @@ namespace Gestionnaire_TPI
             this.user = user;
         }
 
-        private readonly HashSet<char> CHARS = new("(#$%&()*+-<=>?@)".ToCharArray());
+        private readonly HashSet<char> SPECIAL_CHARS = new("#$%&()*+-<=>?@".ToCharArray());
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
@@ -71,7 +71,7 @@ namespace Gestionnaire_TPI
         /// <returns></returns>
         private bool isPasswordValid(string password)
         {
-            //TODO Use Regex instead of manually checking password validity
+            //TODO Use a Regex instead of manually checking password validity
 
             if (password.Length < 8) return false;
 
@@ -81,7 +81,7 @@ namespace Gestionnaire_TPI
 
             foreach (char c in password.ToCharArray())
             {
-                if (CHARS.Contains(c))
+                if (SPECIAL_CHARS.Contains(c))
                 {
                     containsSpecialChar = true;
                 }

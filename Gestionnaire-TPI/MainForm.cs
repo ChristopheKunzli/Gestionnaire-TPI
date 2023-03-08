@@ -149,8 +149,20 @@ namespace Gestionnaire_TPI
         /// <param name="e"></param>
         private void cmdDetails_Click(object sender, EventArgs e)
         {
-            //TODO Replace this to show the TPI details form instead
-            MessageBox.Show(dgvListTPI[0, dgvListTPI.SelectedCells[0].RowIndex].Value.ToString());
+            DetailsForm detailsForm = new DetailsForm();
+
+            DataGridViewRow t = dgvListTPI.Rows[dgvListTPI.SelectedCells[0].RowIndex];
+
+            //Get title of TPI :
+            //t.Cells[0].ToString();
+            
+            detailsForm.FormClosing += delegate
+            {
+                this.Show();
+            };
+
+            detailsForm.Show();
+            this.Hide();
         }
     }
 }
