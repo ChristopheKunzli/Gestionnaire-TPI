@@ -47,7 +47,7 @@ namespace Gestionnaire_TPI
         }
 
         /// <summary>
-        /// Give all important information on the TPI
+        /// Give only basic information about the TPI
         /// </summary>
         /// <returns>An array containing each value to display as strings</returns>
         public string[] DisplayTPIShort(bool ChiefIsResponsableTPI)
@@ -59,8 +59,13 @@ namespace Gestionnaire_TPI
             return res;
         }
 
+        /// <summary>
+        /// Give every information about the TPI
+        /// </summary>
+        /// <returns></returns>
         public string[] DisplayTPIFull()
         {
+            //TODO Implement a way to extract every information about the TPI (including technologies used)
             return Array.Empty<string>();
         }
     }

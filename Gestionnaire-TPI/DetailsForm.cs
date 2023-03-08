@@ -12,9 +12,13 @@ namespace Gestionnaire_TPI
 {
     public partial class DetailsForm : Form
     {
-        public DetailsForm()
+        private bool userIsResponsable;
+
+        public DetailsForm(bool userIsResponsable)
         {
             InitializeComponent();
+
+            this.userIsResponsable = userIsResponsable;
         }
     }
 }

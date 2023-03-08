@@ -149,7 +149,7 @@ namespace Gestionnaire_TPI
         /// <param name="e"></param>
         private void cmdDetails_Click(object sender, EventArgs e)
         {
-            DetailsForm detailsForm = new DetailsForm();
+            DetailsForm detailsForm = new DetailsForm(user.IsAdmin);
 
             DataGridViewRow t = dgvListTPI.Rows[dgvListTPI.SelectedCells[0].RowIndex];
 
