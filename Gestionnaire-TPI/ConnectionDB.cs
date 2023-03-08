@@ -127,8 +127,9 @@ namespace Gestionnaire_TPI
 
                 cmdSelect.CommandText = 
                     "SELECT tpi.title, tpi.year, tpi.remarks, tpi.duration, tpi.CDC, " +
-                    "candidates.firstName AS candidate_firstName, candidates.lastName AS candidate_lastName, " +
-                    "collaborators.firstName AS collaborator_firstName, collaborators.lastName AS collaborator_lastName " +
+                    "candidates.firstName AS candidate_firstName, candidates.lastName AS candidate_lastName, candidates.email AS candidate_email, " +
+                    "collaborators.firstName AS collaborator_firstName, collaborators.lastName AS collaborator_lastName, collaborators.email AS collaborator_email, collaborators.acronym AS collaborator_acronym, collaborators.isResponsableTPI AS collaborator_isResponsable, " +
+                    "classes.name AS candidate_className " +
                     "FROM tpi " +
                     "LEFT JOIN candidates ON candidates.id = tpi.Candidates_id " +
                     "LEFT JOIN collaborators ON collaborators.id = tpi.Collaborators_id " +
@@ -138,21 +139,30 @@ namespace Gestionnaire_TPI
 
                 while (dataReader.Read())
                 {
+                    //Extract TPI data
                     string title = dataReader["title"].ToString();
                     string year = dataReader["year"].ToString();
                     string remarks = dataReader["remarks"].ToString();
                     string duration = dataReader["duration"].ToString();
 
-                    //int candidate_id =  int.Parse(dataReader["Candidates_id"].ToString());
-                    //int collaborator_id =  int.Parse(dataReader["Candidates_id"].ToString());
+                    //Extract candidate data
+                    string candidatefirstName = dataReader["candidate_firstName"].ToString();
+                    string candidatelastName = dataReader["candidate_lastName"].ToString();
+                    string candidateEmail = dataReader["candidate_email"].ToString();
+                    string candidateClass = dataReader["candidate_className"].ToString();
 
-                    string candidateName = dataReader["candidate_firstName"].ToString() + " " + dataReader["candidate_lastName"].ToString();
-                    string projectChiefName = dataReader["collaborator_firstName"].ToString() + " " + dataReader["collaborator_lastName"].ToString();
+                    //Extract project chief data
+                    string projectChiefirstName = dataReader["collaborator_firstName"].ToString();
+                    string projectChieflastName = dataReader["collaborator_lastName"].ToString();
+                    string projectChiefEmail = dataReader["collaborator_email"].ToString(); 
+                    string projectChiefAcronym = dataReader["collaborator_acronym"].ToString();
+                    bool projectChiefIsResponsable = (dataReader["collaborator_isResponsable"].ToString() == "1") ? true : false;
 
-                    //Candidate cand = getCandidateByID(candidate_id);
-                    //Collaborator collab = getCollaboratorByID(collaborator_id);
+                    //Instanciate objects and add TPI to list
+                    Candidate cand = new Candidate(candidatefirstName, candidatelastName, candidateEmail, candidateClass);
+                    Collaborator chief = new Collaborator(projectChiefirstName, projectChieflastName, projectChiefEmail, projectChiefAcronym, projectChiefIsResponsable);
 
-                    list.Add(new TPI(title, year, remarks, duration));
+                    list.Add(new TPI(title, year, remarks, duration, cand, chief));
                    
                 }
                 connection.Close();

@@ -18,24 +18,27 @@ namespace Gestionnaire_TPI
         public MainForm(Collaborator user)
         {
             InitializeComponent();
+
             this.user = user;
 
             cmdDetails.Text = (user.IsAdmin) ? "Voir détails / Modifier" : "Voir détails";
 
             initDGV();
-
         }
 
         private void initDGV()
         {
-            //Add all columns
+            //Add all base columns
             dgvListTPI.ColumnCount = 4;
 
             dgvListTPI.Columns[0].Name = "Titre";
-            dgvListTPI.Columns[0].Width = 500;
             dgvListTPI.Columns[1].Name = "Date";
             dgvListTPI.Columns[2].Name = "Candidat";
             dgvListTPI.Columns[3].Name = "Chef de projet";
+
+            dgvListTPI.Columns[0].Width = 600;
+            dgvListTPI.Columns[2].Width = 200;
+            dgvListTPI.Columns[3].Width = 200;
 
             //Prevent user from manipulating the data
             dgvListTPI.ReadOnly = true;
@@ -43,8 +46,9 @@ namespace Gestionnaire_TPI
             dgvListTPI.AllowUserToDeleteRows = false;
             dgvListTPI.AllowUserToOrderColumns = false;
 
-            dgvListTPI.AllowUserToResizeColumns = true;
+            dgvListTPI.AllowUserToResizeColumns = false;
             dgvListTPI.AllowUserToResizeRows = false;
+
             dgvListTPI.AllowDrop = false;
 
             if (user.IsAdmin)
@@ -69,25 +73,6 @@ namespace Gestionnaire_TPI
         }
 
         /// <summary>
-        /// Event handler for CellContentClick
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void dgvListTPI_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var senderGrid = (DataGridView)sender;
-
-            //if(e.RowIndex < 0 ) { return; }
-
-            //Verify that the user clicked on a celle that contains a button 
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
-            {
-                //TODO Replace this to delete a TPI instead
-                MessageBox.Show(dgvListTPI[0, e.RowIndex].Value.ToString());
-            }
-        }
-
-        /// <summary>
         /// Insert all data to the DataGridView
         /// </summary>
         private void refreshList()
@@ -102,13 +87,30 @@ namespace Gestionnaire_TPI
 
                 foreach (TPI tpi in list)
                 {
-                    dgvListTPI.Rows.Add(tpi.DisplayTPI());
+                    dgvListTPI.Rows.Add(tpi.DisplayTPIShort(user.IsAdmin));
                 }
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Event handler for CellContentClick
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvListTPI_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            //Verify that the user clicked on a celle that contains a button 
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                //TODO Replace this to delete a TPI instead
+                MessageBox.Show(dgvListTPI[0, e.RowIndex].Value.ToString());
             }
         }
 
@@ -121,8 +123,8 @@ namespace Gestionnaire_TPI
         {
             Form addTPI = new Form();
 
-
-            addTPI.FormClosing += delegate {
+            addTPI.FormClosing += delegate
+            {
                 this.Show();
             };
 
@@ -140,6 +142,11 @@ namespace Gestionnaire_TPI
             refreshList();
         }
 
+        /// <summary>
+        /// Event handler for the details button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdDetails_Click(object sender, EventArgs e)
         {
             //TODO Replace this to show the TPI details form instead

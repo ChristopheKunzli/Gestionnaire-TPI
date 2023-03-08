@@ -23,7 +23,7 @@ namespace Gestionnaire_TPI
             this.email = email;
         }
 
-        public string Display()
+        public string GetFullName()
         {
             return $"{firstName} {lastName}";
         }

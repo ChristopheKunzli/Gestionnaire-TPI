@@ -49,10 +49,14 @@ namespace Gestionnaire_TPI
         /// <summary>
         /// Give all important information on the TPI
         /// </summary>
-        /// <returns>An array containing each </returns>
-        public string[] DisplayTPI()
+        /// <returns>An array containing each value to display as strings</returns>
+        public string[] DisplayTPIShort(bool ChiefIsResponsableTPI)
         {
-            return new string[] { title, year, remarks, duration };
+            string[] res = (ChiefIsResponsableTPI) 
+                ? new string[] { title, year, candidate.GetFullName(), projectChief.GetFullName(), "Supprimmer" } 
+                : new string[] { title, year, candidate.GetFullName(), projectChief.GetFullName() } ;
+
+            return res;
         }
     }
 }
