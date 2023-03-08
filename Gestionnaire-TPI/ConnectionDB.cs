@@ -20,16 +20,15 @@ namespace Gestionnaire_TPI
         public ConnectionDB()
         {
             connection = InitConnexion();
-            //connection2 = InitConnexion();
         }
 
         /// <summary>
-        /// Method used to create a connection to the DataBase
+        /// Method used to instantiate a connection to the DataBase
         /// </summary>
         private MySqlConnection InitConnexion()
         {
             // connection string creation : contact the DB server
-            string connectionString = "SERVER=127.0.0.1; PORT=3306; DATABASE=tpi-manager; UID=client_tpi-manager; PASSWORD=Pa$$w0rd";
+            string connectionString = "SERVER=SC-C236-PC09; PORT=3306; DATABASE=tpi-manager; UID=client_tpi-manager; PASSWORD=Pa$$w0rd";
             return new MySqlConnection(connectionString);
         }
 
@@ -121,9 +120,6 @@ namespace Gestionnaire_TPI
                 connection.Open();
 
                 MySqlCommand cmdSelect = connection.CreateCommand();
-
-                //cmdSelect.CommandText = 
-                //    $"SELECT title, year, remarks, duration, Candidates_id, Collaborators_id FROM tpi";
 
                 cmdSelect.CommandText = 
                     "SELECT tpi.title, tpi.year, tpi.remarks, tpi.duration, tpi.CDC, " +
