@@ -1,5 +1,4 @@
-﻿cd P:\Pre-TPI\DB
-$csv = Import-Csv -Path "./collaborators.csv" -Delimiter ";"
+﻿$csv = Import-Csv -Path "./collaborators.csv" -Delimiter ";"
 
 Foreach($line in $csv){
     $email = $line.Email

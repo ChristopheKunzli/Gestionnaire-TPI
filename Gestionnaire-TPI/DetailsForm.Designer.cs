@@ -42,13 +42,15 @@
             numDuration = new NumericUpDown();
             cmbCandidate = new ComboBox();
             cmbChief = new ComboBox();
+            cmdAllowChange = new Button();
+            cmdExit = new Button();
             ((System.ComponentModel.ISupportInitialize)numDuration).BeginInit();
             SuspendLayout();
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Location = new Point(12, 33);
+            lblTitle.Location = new Point(12, 9);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(30, 15);
             lblTitle.TabIndex = 0;
@@ -57,7 +59,7 @@
             // lblYear
             // 
             lblYear.AutoSize = true;
-            lblYear.Location = new Point(12, 273);
+            lblYear.Location = new Point(12, 249);
             lblYear.Name = "lblYear";
             lblYear.Size = new Size(41, 15);
             lblYear.TabIndex = 1;
@@ -66,7 +68,7 @@
             // lblRemark
             // 
             lblRemark.AutoSize = true;
-            lblRemark.Location = new Point(12, 121);
+            lblRemark.Location = new Point(12, 97);
             lblRemark.Name = "lblRemark";
             lblRemark.Size = new Size(61, 15);
             lblRemark.TabIndex = 2;
@@ -75,7 +77,7 @@
             // lblDuration
             // 
             lblDuration.AutoSize = true;
-            lblDuration.Location = new Point(286, 273);
+            lblDuration.Location = new Point(286, 249);
             lblDuration.Name = "lblDuration";
             lblDuration.Size = new Size(56, 15);
             lblDuration.TabIndex = 3;
@@ -84,7 +86,7 @@
             // lblCandidate
             // 
             lblCandidate.AutoSize = true;
-            lblCandidate.Location = new Point(12, 337);
+            lblCandidate.Location = new Point(12, 313);
             lblCandidate.Name = "lblCandidate";
             lblCandidate.Size = new Size(55, 15);
             lblCandidate.TabIndex = 4;
@@ -93,7 +95,7 @@
             // lblChief
             // 
             lblChief.AutoSize = true;
-            lblChief.Location = new Point(12, 400);
+            lblChief.Location = new Point(12, 376);
             lblChief.Name = "lblChief";
             lblChief.Size = new Size(82, 15);
             lblChief.TabIndex = 5;
@@ -119,7 +121,8 @@
             // 
             // txtTitle
             // 
-            txtTitle.Location = new Point(12, 51);
+            txtTitle.Enabled = false;
+            txtTitle.Location = new Point(12, 27);
             txtTitle.Name = "txtTitle";
             txtTitle.Size = new Size(558, 58);
             txtTitle.TabIndex = 8;
@@ -127,14 +130,16 @@
             // 
             // dateYear
             // 
-            dateYear.Location = new Point(12, 291);
+            dateYear.Enabled = false;
+            dateYear.Location = new Point(12, 267);
             dateYear.Name = "dateYear";
             dateYear.Size = new Size(200, 23);
             dateYear.TabIndex = 9;
             // 
             // txtRemark
             // 
-            txtRemark.Location = new Point(12, 139);
+            txtRemark.Enabled = false;
+            txtRemark.Location = new Point(12, 115);
             txtRemark.Name = "txtRemark";
             txtRemark.Size = new Size(558, 119);
             txtRemark.TabIndex = 10;
@@ -142,32 +147,59 @@
             // 
             // numDuration
             // 
-            numDuration.Location = new Point(286, 291);
+            numDuration.Enabled = false;
+            numDuration.Location = new Point(286, 267);
             numDuration.Name = "numDuration";
             numDuration.Size = new Size(120, 23);
             numDuration.TabIndex = 11;
             // 
             // cmbCandidate
             // 
+            cmbCandidate.Enabled = false;
             cmbCandidate.FormattingEnabled = true;
-            cmbCandidate.Location = new Point(12, 357);
+            cmbCandidate.Location = new Point(12, 333);
             cmbCandidate.Name = "cmbCandidate";
             cmbCandidate.Size = new Size(394, 23);
             cmbCandidate.TabIndex = 12;
             // 
             // cmbChief
             // 
+            cmbChief.Enabled = false;
             cmbChief.FormattingEnabled = true;
-            cmbChief.Location = new Point(12, 418);
+            cmbChief.Location = new Point(12, 394);
             cmbChief.Name = "cmbChief";
             cmbChief.Size = new Size(394, 23);
             cmbChief.TabIndex = 13;
+            // 
+            // cmdAllowChange
+            // 
+            cmdAllowChange.Enabled = false;
+            cmdAllowChange.Location = new Point(12, 523);
+            cmdAllowChange.Name = "cmdAllowChange";
+            cmdAllowChange.Size = new Size(100, 23);
+            cmdAllowChange.TabIndex = 14;
+            cmdAllowChange.Text = "Modifier TPI";
+            cmdAllowChange.UseVisualStyleBackColor = true;
+            cmdAllowChange.Click += cmdAllowChange_Click;
+            // 
+            // cmdExit
+            // 
+            cmdExit.DialogResult = DialogResult.Cancel;
+            cmdExit.Location = new Point(12, 552);
+            cmdExit.Name = "cmdExit";
+            cmdExit.Size = new Size(100, 23);
+            cmdExit.TabIndex = 15;
+            cmdExit.Text = "Annuler";
+            cmdExit.UseVisualStyleBackColor = true;
+            cmdExit.Click += cmdExit_Click;
             // 
             // DetailsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(582, 587);
+            Controls.Add(cmdExit);
+            Controls.Add(cmdAllowChange);
             Controls.Add(cmbChief);
             Controls.Add(cmbCandidate);
             Controls.Add(numDuration);
@@ -205,5 +237,7 @@
         private NumericUpDown numDuration;
         private ComboBox cmbCandidate;
         private ComboBox cmbChief;
+        private Button cmdAllowChange;
+        private Button cmdExit;
     }
 }

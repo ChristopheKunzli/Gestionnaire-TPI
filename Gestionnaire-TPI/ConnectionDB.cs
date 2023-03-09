@@ -219,6 +219,49 @@ namespace Gestionnaire_TPI
             return list;
         }
 
+        public List<Collaborator> getListCollaborator()
+        {
+            List<Collaborator> list = new List<Collaborator>();
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand cmdSelect = connection.CreateCommand();
+
+                cmdSelect.CommandText =
+                    "SELECT firstName, lastName, email, acronym, isResponsableTPI " +
+                    "FROM collaborators";
+
+                MySqlDataReader dataReader = cmdSelect.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    //Extract candidate data
+                    string firstName = dataReader["firstName"].ToString();
+                    string lastName = dataReader["lastName"].ToString();
+                    string email = dataReader["email"].ToString();
+                    string acronym = dataReader["acronym"].ToString();
+                    bool isResponsable = (dataReader["isResponsableTPI"].ToString() == "1") ? true : false;
+
+                    list.Add(new Collaborator(firstName, lastName, email, acronym, isResponsable));
+
+                }
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return list;
+        }
+
         /// <summary>
         /// Method used to get information of a specific candidate by searching it's id
         /// </summary>
