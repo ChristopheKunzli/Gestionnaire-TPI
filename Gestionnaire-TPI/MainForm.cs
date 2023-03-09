@@ -15,6 +15,8 @@ namespace Gestionnaire_TPI
         private ConnectionDB connection;
         private Collaborator user;
 
+        private List<TPI> list = new List<TPI>();
+
         public MainForm(Collaborator user)
         {
             InitializeComponent();
@@ -26,6 +28,9 @@ namespace Gestionnaire_TPI
             initDGV();
         }
 
+        /// <summary>
+        /// Initialize the DataGridView
+        /// </summary>
         private void initDGV()
         {
             //Add all base columns
@@ -83,7 +88,7 @@ namespace Gestionnaire_TPI
             {
                 connection = new ConnectionDB();
 
-                List<TPI> list = connection.getListTPI();
+                list = connection.getListTPI();
 
                 foreach (TPI tpi in list)
                 {
@@ -149,9 +154,9 @@ namespace Gestionnaire_TPI
         /// <param name="e"></param>
         private void cmdDetails_Click(object sender, EventArgs e)
         {
-            DetailsForm detailsForm = new DetailsForm(user.IsAdmin);
-
             DataGridViewRow t = dgvListTPI.Rows[dgvListTPI.SelectedCells[0].RowIndex];
+
+            DetailsForm detailsForm = new DetailsForm(user.IsAdmin, list.ToArray()[t.Index]);
 
             //Get title of TPI :
             //t.Cells[0].ToString();

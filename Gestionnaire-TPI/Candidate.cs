@@ -16,6 +16,14 @@ namespace Gestionnaire_TPI
         public Candidate(string firstName, string lastName, string email, string className) : base (firstName, lastName, email)
         {
             this.className = className;
+
+            setDisplayInfo();
+        }
+
+        public override void setDisplayInfo()
+        {
+            //displayInfo = $"{fullName}  {className}  {email}";
+            displayInfo = $"{email}";
         }
     }
 }

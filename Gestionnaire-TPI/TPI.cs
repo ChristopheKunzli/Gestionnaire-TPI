@@ -53,8 +53,8 @@ namespace Gestionnaire_TPI
         public string[] DisplayTPIShort(bool ChiefIsResponsableTPI)
         {
             string[] res = (ChiefIsResponsableTPI) 
-                ? new string[] { title, year, candidate.GetFullName(), projectChief.GetFullName(), "Supprimmer" } 
-                : new string[] { title, year, candidate.GetFullName(), projectChief.GetFullName() } ;
+                ? new string[] { title, year, candidate.FullName, projectChief.FullName, "Supprimmer" } 
+                : new string[] { title, year, candidate.FullName, projectChief.FullName } ;
 
             return res;
         }

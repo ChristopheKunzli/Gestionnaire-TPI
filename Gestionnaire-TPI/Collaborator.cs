@@ -19,7 +19,13 @@ namespace Gestionnaire_TPI
         {
             this.acronym = acronym;
             this.isAdmin = isAdmin;
+
+            setDisplayInfo();
         }
 
+        public override void setDisplayInfo()
+        {
+            displayInfo = $"{fullName}  {acronym}  {email}";
+        }
     }
 }

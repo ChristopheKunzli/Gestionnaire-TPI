@@ -176,6 +176,49 @@ namespace Gestionnaire_TPI
             return list;
         }
 
+        public List<Candidate> getListCandidates()
+        {
+            List<Candidate> list = new List<Candidate>();
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand cmdSelect = connection.CreateCommand();
+
+                cmdSelect.CommandText =
+                    "SELECT candidates.firstName, candidates.lastName, candidates.email, classes.name AS className " +
+                    "FROM candidates " +
+                    "LEFT JOIN classes ON classes.id = candidates.Classes_id";
+
+                MySqlDataReader dataReader = cmdSelect.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    //Extract candidate data
+                    string firstName = dataReader["firstName"].ToString();
+                    string lastName = dataReader["lastName"].ToString();
+                    string email = dataReader["email"].ToString();
+                    string className = dataReader["className"].ToString();
+
+                    list.Add(new Candidate(firstName, lastName, email, className));
+
+                }
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return list;
+        }
+
         /// <summary>
         /// Method used to get information of a specific candidate by searching it's id
         /// </summary>
